@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /tak/
+Disallow: /groepsleiding/
+Disallow: /verhuur/
+
