@@ -13,14 +13,14 @@
             </div>
         </div>
         <div class="col-md-4">
-            <h2 style="margin-top: 0px;"><xsl:value-of select="global/entry/naam"/></h2>
-            <i><xsl:value-of select="global/entry/volledige-naam"/></i>
+            <h2 style="margin-top: 0px;"><xsl:value-of select="$sp-scouts-naam"/></h2>
+            <i><xsl:value-of select="$sp-scouts-naamvolledig"/></i>
             <p> </p>
-            <p><xsl:value-of select="global/entry/adres"/></p>
-            <p><b>Rekeningnummer : </b><xsl:value-of select="global/entry/rekeningnummer"/></p>
+            <p><xsl:value-of select="$sp-scouts-adres"/></p>
+            <p><b>Rekeningnummer : </b><xsl:value-of select="$sp-scouts-rekeningnummer"/></p>
             
             <h3>Contact</h3>
-            <i><xsl:value-of select="global/entry/contact-informatie"/></i>
+            <i><xsl:value-of select="$sp-scouts-contactinformatie"/></i>
             <p>
                 <br />
                     <xsl:for-each select="leiding/entry">
@@ -47,9 +47,9 @@
     <script src="{$workspace}/resources/js/leaflet-providers.js"></script>
     <script type="text/javascript">
         // create a map in the "map" div, set the view to a given place and zoom
-        var naam = '<xsl:value-of select="data/global/entry/naam" />';
-        var leng = '<xsl:value-of select="data/global/entry/lengtegraad" />';
-        var breed = '<xsl:value-of select="data/global/entry/breedtegraad" />';
+        var naam = '<xsl:value-of select="$sp-scouts-naam" />';
+        var leng = '<xsl:value-of select="$sp-scouts-lengtegraad" />';
+        var breed = '<xsl:value-of select="$sp-scouts-breedtegraad" />';
 
         var map = L.map('map').setView([leng, breed], 17);
 

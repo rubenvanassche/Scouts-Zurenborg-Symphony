@@ -1,5 +1,5 @@
 <?php
 
 	$recipes = array(
-	);
 
+	);

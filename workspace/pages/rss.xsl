@@ -12,9 +12,9 @@
 <xsl:template match="/">
 	<rss version="2.0">
 	    <channel>
-	        <title><xsl:value-of select="data/global/entry/naam"/></title>
+	        <title><xsl:value-of select="$sp-scouts-naam"/></title>
 	        <link><xsl:value-of select="$root"/></link>
-	        <description>De RSS feed van <xsl:value-of select="data/global/entry/naam"/></description>
+	        <description>De RSS feed van <xsl:value-of select="$sp-scouts-naam"/></description>
 	        <generator>Symphony</generator>
 
 			<xsl:for-each select="data/berichten/entry">

@@ -13,7 +13,7 @@
     <html lang="en">
         <head>
             <meta charset="utf-8" />
-            <title><xsl:value-of select="data/global/entry/naam"/> - <xsl:call-template name="page-title"/></title>
+            <title><xsl:value-of select="$sp-scouts-naam"/> - <xsl:call-template name="page-title"/></title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content="" />
             <meta name="author" content="" />
@@ -51,7 +51,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{$root}"><xsl:value-of select="data/global/entry/naam"/></a>
+                        <a class="navbar-brand" href="{$root}"><xsl:value-of select="$sp-scouts-naam"/></a>
                     </div>
 
                     <!-- Links -->

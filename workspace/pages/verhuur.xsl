@@ -8,7 +8,7 @@
  <div class="row">
     <div class="col-md-12">
     	<h3>Algemeen</h3>
-    	<p><xsl:value-of select="global/entry/materiaalverhuur-informatie"/></p>
+    	<p><xsl:value-of select="$sp-scouts-materiaalverhuur"/></p>
     	<xsl:for-each select="verhuurders/entry">
 		         <p><i class="glyphicon glyphicon-user"></i><b><xsl:value-of select="naam"/></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer"/></span></p>
 		</xsl:for-each>
