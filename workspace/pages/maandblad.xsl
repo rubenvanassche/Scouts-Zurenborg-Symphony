@@ -8,7 +8,7 @@
 	<!-- when there is no selector !-->
 	<xsl:if test="$selector=''">
 		<script type="text/javascript">
-			var currentVersion = "<xsl:value-of select="maandblad-huidig/entry/selector/@handle"/>";
+			var currentVersion = "<xsl:value-of select="maandblad/entry/selector/@handle"/>";
 			var root = "<xsl:value-of select="params/root"/>";
 			if(currentVersion != ''){
 				window.location = root + '/maandblad/' + currentVersion;

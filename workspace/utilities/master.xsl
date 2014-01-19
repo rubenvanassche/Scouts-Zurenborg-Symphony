@@ -98,7 +98,33 @@
             </div>
             
             <div id="content" class="container">
-                <xsl:apply-templates select="data/banners/entry"/>
+                <xsl:if test="$sp-banner-show='Yes'">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <xsl:if test="$sp-banner-color='geel'">
+                                <div class="alert alert-warning">
+                                    <xsl:value-of select="$sp-banner-text"/> <a class="pull-right alert-link" href="{$sp-banner-link}">Lees meer&#187;</a>
+                                </div>
+                            </xsl:if>
+                            <xsl:if test="$sp-banner-color='groen'">
+                                <div class="alert alert-success">
+                                    <xsl:value-of select="$sp-banner-text"/> <a class="pull-right alert-link" href="{$sp-banner-link}">Lees meer&#187;</a>
+                                </div>
+                            </xsl:if>
+                            <xsl:if test="$sp-banner-color='blauw'">
+                                <div class="alert alert-info">
+                                    <xsl:value-of select="$sp-banner-text"/> <a class="pull-right alert-link" href="{$sp-banner-link}">Lees meer&#187;</a>
+                                </div>
+                            </xsl:if>
+                            <xsl:if test="$sp-banner-color='rood'">
+                                <div class="alert alert-danger">
+                                    <xsl:value-of select="$sp-banner-text"/> <a class="pull-right alert-link" href="{$sp-banner-link}">Lees meer&#187;</a>
+                                </div>
+                            </xsl:if>
+                        </div>
+                    </div>
+                </xsl:if>
+
                 <xsl:apply-templates />
             </div>
             
@@ -136,33 +162,6 @@
 
 <xsl:template name="background-image">
     <xsl:value-of select="data/params/workspace"/>/Afbeeldingen/achtergrond/<xsl:value-of select="data/achtergrondafbeeldingen/entry/afbeelding/filename"/>
-</xsl:template>
-
-<xsl:template match="data/banners/entry">
-    <div class="row">
-        <div class="col-xs-12">
-            <xsl:if test="kleur/item='geel'">
-                <div class="alert alert-warning">
-                    <xsl:value-of select="inhoud"/> <a class="pull-right alert-link" href="{link}">Lees meer&#187;</a>
-                </div>
-            </xsl:if>
-            <xsl:if test="kleur/item='groen'">
-                <div class="alert alert-success">
-                    <xsl:value-of select="inhoud"/> <a class="pull-right alert-link" href="{link}">Lees meer&#187;</a>
-                </div>
-            </xsl:if>
-            <xsl:if test="kleur/item='paars'">
-                <div class="alert alert-info">
-                    <xsl:value-of select="inhoud"/> <a class="pull-right alert-link" href="{link}">Lees meer&#187;</a>
-                </div>
-            </xsl:if>
-            <xsl:if test="kleur/item='rood'">
-                <div class="alert alert-danger">
-                    <xsl:value-of select="inhoud"/> <a class="pull-right alert-link" href="{link}">Lees meer&#187;</a>
-                </div>
-            </xsl:if>
-        </div>
-    </div>
 </xsl:template>
 
 <xsl:template name="extra-js">

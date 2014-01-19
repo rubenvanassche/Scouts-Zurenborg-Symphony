@@ -250,6 +250,10 @@ ul#faqSelector li.active p{
 	#map{
 		height : 250px;
 	}
+
+	.bericht .title{
+	font-size: 33px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -313,5 +317,9 @@ ul#faqSelector li.active p{
 	ul#faqSelector li img{
 		width: 60px;
 		height: 60px;
+	}
+
+	.bericht .title{
+	font-size: 27px;
 	}
 }

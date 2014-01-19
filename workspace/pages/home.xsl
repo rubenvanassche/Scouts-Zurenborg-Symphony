@@ -18,7 +18,7 @@
 			<h3>Voorwoord</h3>
 		</div>
         <div class="col-sm-5" id="voorwoord">
-            <xsl:copy-of select="maandblad-huidig/entry/voorwoord"/>
+            <xsl:copy-of select="maandblad/entry/voorwoord"/>
         </div>
         <div class="col-sm-12 visible-xs">
         	<hr />

@@ -1,7 +1,7 @@
 <?php
 	$settings = array(
 
-		###### FIELDSET: SCOUTS INSTELLINGEN ######
+		###### FIELDSET: SCOUTS ######
 		array(
 			'name' => 'Scouts',
 			'sections' => array(),
@@ -53,6 +53,39 @@
 					'label' => 'Materiaalkotverhuur informatie',
 					'type' => 'textarea',
 					'value' => 'Voor het huren van materiaal  kunt u de prijzen hieronder gebruiken. Materiaalgebruik is gratis voor leiding of oud-leiding maar moet steeds met de materiaalmeesters worden afgesproken. Wenst u iets te huren? Gelieve dan een mail te sturen naar materiaalmeesters@scouts-zurenborg.be met daarin wat u wenst te huren, op welke data en eventueel verdere contactgegevens. U kunt ook bellen naar één van de volgende personen :',
+				),
+			)
+		),
+		########
+
+		###### FIELDSET: BANNER ######
+		array(
+			'name' => 'Banner',
+			'sections' => array(),
+			'fields' => array(
+				array(
+					'name' => 'show',
+					'label' => 'Weergeven',
+					'type' => 'checkbox',
+				),
+				array(
+					'name' => 'color',
+					'label' => 'Kleur',
+					'type' => 'select',
+					'values' => 'rood, geel , blauw, groen',
+					'value' => 'groen',
+				),
+				array(
+					'name' => 'text',
+					'label' => 'Tekst',
+					'type' => 'input',
+					'value' => 'Test',
+				),
+				array(
+					'name' => 'link',
+					'label' => 'Link',
+					'type' => 'input',
+					'value' => 'http://google.be',
 				),
 			)
 		),
