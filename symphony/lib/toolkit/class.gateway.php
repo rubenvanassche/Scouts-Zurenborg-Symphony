@@ -119,7 +119,7 @@
 
 		/**
 		 * An array of custom headers to pass with the request
-		 * @var integer
+		 * @var array
 		 */
 		private $_headers = array();
 
@@ -243,8 +243,10 @@
 				case 'POSTFIELDS':
 					if(is_array($value) && !empty($value)){
 						$this->_postfields = http_build_query($value);
-					}else
+					}
+					else {
 						$this->_postfields = $value;
+					}
 
 					break;
 
@@ -253,7 +255,12 @@
 					break;
 
 				case 'HTTPHEADER':
-					$this->_headers = $value;
+					// merge the values, so multiple calls won't erase other values
+					if (is_array($value)) {
+						$this->_headers = array_merge($this->_headers, $value);
+					} else {
+						$this->_headers[] = $value;
+					}
 					break;
 
 				case 'RETURNHEADERS':
@@ -339,6 +346,7 @@
 				$result = curl_exec($ch);
 
 				$this->_info_last = curl_getinfo($ch);
+				$this->_info_last['curl_error'] = curl_errno($ch);
 
 				// Close the connection
 				curl_close ($ch);
@@ -373,6 +381,7 @@
 			stream_set_timeout($handle, $this->_timeout);
 
 			$status = stream_get_meta_data($handle);
+			$response = $dechunked = '';
 
 			// get header
 			while (!preg_match('/\\r\\n\\r\\n$/', $header) && !$status['timed_out']) {
@@ -431,7 +440,7 @@
 			$this->_info_last = array(
 				'url' => $this->_url,
 				'content_type' => $content_type,
-				'http_code' => $status,
+				'http_code' => (int)$status,
 				'total_time' => $end
 			);
 

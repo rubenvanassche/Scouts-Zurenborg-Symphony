@@ -23,9 +23,12 @@ Options +FollowSymlinks -Indexes
 
 	
 	
+	
 	### IMAGE RULES
 	RewriteRule ^image\/(.+)$ extensions/jit_image_manipulation/lib/image.php?param=$1 [B,L,NC]
 
+
+	
 
 	
 

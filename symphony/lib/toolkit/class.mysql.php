@@ -343,6 +343,22 @@
 		}
 
 		/**
+		 * Sets the MySQL connection to use this timezone instead of the default
+		 * MySQL server timezone.
+		 *
+		 * @link https://dev.mysql.com/doc/refman/5.6/en/time-zone-support.html
+		 * @since Symphony 2.3.3
+		 * @param string $timezone
+		 *  Timezone will be a offset, `+10:00`, as not all MySQL installations will
+		 *  have the humanreadable timezone database available
+		 */
+		public function setTimeZone($timezone = null) {
+			if(is_null($timezone)) return;
+
+			$this->query("SET time_zone = '$timezone'");
+		}
+
+		/**
 		 * This function will clean a string using the `mysql_real_escape_string` function
 		 * taking into account the current database character encoding. Note that this
 		 * function does not encode _ or %. If `mysql_real_escape_string` doesn't exist,
@@ -393,14 +409,14 @@
 		/**
 		 * Determines whether this query is a read operation, or if it is a write operation.
 		 * A write operation is determined as any query that starts with CREATE, INSERT,
-		 * REPLACE, ALTER, DELETE, UPDATE, OPTIMIZE or TRUNCATE. Anything else is
+		 * REPLACE, ALTER, DELETE, UPDATE, OPTIMIZE, TRUNCATE or DROP. Anything else is
 		 * considered to be a read operation which are subject to query caching.
 		 *
 		 * @return integer
 		 *  `MySQL::__WRITE_OPERATION__` or `MySQL::__READ_OPERATION__`
 		 */
 		public function determineQueryType($query){
-			return (preg_match('/^(create|insert|replace|alter|delete|update|optimize|truncate)/i', $query) ? MySQL::__WRITE_OPERATION__ : MySQL::__READ_OPERATION__);
+			return (preg_match('/^(create|insert|replace|alter|delete|update|optimize|truncate|drop)/i', $query) ? MySQL::__WRITE_OPERATION__ : MySQL::__READ_OPERATION__);
 		}
 
 		/**
@@ -423,7 +439,7 @@
 		 */
 		public function query($query, $type = "OBJECT"){
 
-			if(empty($query)) return false;
+			if(empty($query) || self::isConnected() === false) return false;
 
 			$start = precision_timer();
 			$query = trim($query);
@@ -451,7 +467,7 @@
 			$this->_lastQuery = $query;
 			$this->_lastQueryHash = $query_hash;
 			$this->_result = mysql_query($query, MySQL::$_connection['id']);
-            $this->_lastInsertID = mysql_insert_id(MySQL::$_connection['id']);
+			$this->_lastInsertID = mysql_insert_id(MySQL::$_connection['id']);
 
 			self::$_query_count++;
 
@@ -631,7 +647,13 @@
 		 * @return boolean
 		 */
 		public function delete($table, $where = null){
-			return $this->query("DELETE FROM $table WHERE $where");
+			$sql = "DELETE FROM $table";
+			
+			if (!is_null($where)) {
+				$sql .= " WHERE $where";
+			}
+			
+			return $this->query($sql);
 		}
 
 		/**
@@ -758,6 +780,22 @@
 		 */
 		public function tableContainsField($table, $field){
 			$results = $this->fetch("DESC `{$table}` `{$field}`");
+
+			return (is_array($results) && !empty($results));
+		}
+
+		/**
+		 * This function takes `$table` and returns boolean
+		 * if it exists or not.
+		 *
+		 * @since Symphony 2.3.4
+		 * @param string $table
+		 *  The table name
+		 * @return boolean
+		 *  True if `$table` exists, false otherwise
+		 */
+		public function tableExists($table) {
+			$results = $this->fetch(sprintf("SHOW TABLES LIKE '%s'", $table));
 
 			return (is_array($results) && !empty($results));
 		}

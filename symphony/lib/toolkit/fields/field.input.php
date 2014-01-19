@@ -103,7 +103,7 @@
 
 			if($id === false) return false;
 
-			$fields = array();
+			$fields = array('validator'=>null);
 
 			$fields['validator'] = ($fields['validator'] == 'custom' ? NULL : $this->get('validator'));
 
@@ -115,7 +115,7 @@
 	-------------------------------------------------------------------------*/
 
 		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null){
-			$value = General::sanitize($data['value']);
+			$value = General::sanitize(isset($data['value']) ? $data['value'] : null);
 			$label = Widget::Label($this->get('label'));
 			if($this->get('required') != 'yes') $label->appendChild(new XMLElement('i', __('Optional')));
 			$label->appendChild(Widget::Input('fields'.$fieldnamePrefix.'['.$this->get('element_name').']'.$fieldnamePostfix, (strlen($value) != 0 ? $value : NULL)));
@@ -127,7 +127,11 @@
 		public function checkPostFieldData($data, &$message, $entry_id=NULL){
 			$message = NULL;
 
-			if($this->get('required') == 'yes' && strlen($data) == 0){
+			if(is_array($data) && isset($data['value'])) {
+				$data = $data['value'];
+			}
+
+			if($this->get('required') == 'yes' && 0 === strlen(trim($data))){
 				$message = __('‘%s’ is a required field.', array($this->get('label')));
 				return self::__MISSING_FIELDS__;
 			}
@@ -189,18 +193,25 @@
 		Import:
 	-------------------------------------------------------------------------*/
 
-		/**
-		 * Give the field some data and ask it to return a value.
-		 *
-		 * @param mixed $data
-		 * @param integer $entry_id
-		 * @return array
-		 */
-		public function prepareImportValue($data, $entry_id = null) {
+		public function getImportModes() {
 			return array(
-				'handle' =>	Lang::createHandle($data),
-				'value' =>	$data
+				'getValue' =>		ImportableField::STRING_VALUE,
+				'getPostdata' =>	ImportableField::ARRAY_VALUE
 			);
+		}
+
+		public function prepareImportValue($data, $mode, $entry_id = null) {
+			$message = $status = null;
+			$modes = (object)$this->getImportModes();
+
+			if($mode === $modes->getValue) {
+				return $data;
+			}
+			else if($mode === $modes->getPostdata) {
+				return $this->processRawFieldData($data, $status, $message, true, $entry_id);
+			}
+
+			return null;
 		}
 
 	/*-------------------------------------------------------------------------
@@ -239,7 +250,7 @@
 				}
 
 				else if (isset($data['value'])) {
-					return General::createHandle($data['value']);
+					return Lang::createHandle($data['value']);
 				}
 			}
 

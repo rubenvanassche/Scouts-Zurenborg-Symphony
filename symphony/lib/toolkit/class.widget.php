@@ -673,8 +673,8 @@
 		 *  set by previous params, except the `id` attribute.
 		 * @return XMLElement
 		 */
-		public function Drawer($id = '', $label = '', XMLElement $content = null, $default_state = 'closed', $context = '', array $attributes = array()){
-			$id = General::createHandle($id);
+		public static function Drawer($id = '', $label = '', XMLElement $content = null, $default_state = 'closed', $context = '', array $attributes = array()){
+			$id = Lang::createHandle($id);
 
 			$contents = new XMLElement('div', $content, array(
 				'class' => 'contents'
