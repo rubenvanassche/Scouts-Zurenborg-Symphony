@@ -216,6 +216,7 @@ ul#faqSelector{
 
 ul#faqSelector li p{
 	margin-top: 10px;
+	font-size: 12px;
 	text-align: center;
 	color: grey;
 }
@@ -225,8 +226,8 @@ ul#faqSelector li a:hover{
 }
 
 ul#faqSelector li img{
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	opacity: 0.5;
 }
 
@@ -310,7 +311,7 @@ ul#faqSelector li.active p{
 	}
 
 	ul#faqSelector li img{
-		width: 75px;
-		height: 75px;
+		width: 60px;
+		height: 60px;
 	}
 }

@@ -17,7 +17,7 @@
 	        <p class="title"><xsl:value-of select="naam"/></p>
 	        <p><xsl:value-of select="straat"/>&#160;<xsl:value-of select="huisnummer"/></p>
 	        <p><xsl:value-of select="postcode"/>&#160;<xsl:value-of select="stad"/></p>
-	        <p><xsl:value-of select="telefoonnummer"/></p>
+	        <p class="telefoon"><xsl:value-of select="telefoonnummer"/></p>
 	    </div>
 	</xsl:if>
 </xsl:template>

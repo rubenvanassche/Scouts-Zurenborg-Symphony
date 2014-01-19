@@ -5,12 +5,12 @@
 	Class datasourceverhuurlijst extends SectionDatasource{
 
 		public $dsParamROOTELEMENT = 'verhuurlijst';
-		public $dsParamORDER = 'desc';
-		public $dsParamPAGINATERESULTS = 'yes';
+		public $dsParamORDER = 'asc';
+		public $dsParamPAGINATERESULTS = 'no';
 		public $dsParamLIMIT = '20';
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
-		public $dsParamSORT = 'system:id';
+		public $dsParamSORT = 'naam';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		
 
@@ -20,7 +20,6 @@
 				'naam',
 				'beschrijving',
 				'afbeelding',
-				'hoeveelheid',
 				'prijs'
 		);
 		
@@ -35,10 +34,10 @@
 				'name' => 'Verhuurlijst',
 				'author' => array(
 					'name' => 'ruben van assche',
-					'website' => 'http://localhost:8888/symphony',
+					'website' => 'http://scouts-zurenborg.be/nieuw',
 					'email' => 'rubenvanassche@gmail.com'),
 				'version' => 'Symphony 2.3.1',
-				'release-date' => '2013-07-08T14:59:15+00:00'
+				'release-date' => '2013-09-14T17:56:29+00:00'
 			);
 		}
 

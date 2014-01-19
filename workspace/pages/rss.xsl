@@ -22,6 +22,8 @@
 			        <title><xsl:value-of select="titel"/></title>
 			        <link><xsl:value-of select="$root"/>/bericht/<xsl:value-of select="@id"/></link>
 			        <description><xsl:value-of select="slagzin"/></description>
+				<pubDate><xsl:value-of select="system-date/created"/></pubDate>
+				<lastBuildDate><xsl:value-of select="system-date/modified"/></lastBuildDate>
 			    </item>
 			</xsl:for-each>
 

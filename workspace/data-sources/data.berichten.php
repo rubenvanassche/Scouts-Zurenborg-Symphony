@@ -17,8 +17,8 @@
 		
 
 		public $dsParamINCLUDEDELEMENTS = array(
+				'system:date',
 				'titel',
-				'foto',
 				'slagzin',
 				'achtergrond'
 		);
@@ -34,10 +34,10 @@
 				'name' => 'Berichten',
 				'author' => array(
 					'name' => 'ruben van assche',
-					'website' => 'http://localhost:8888/symphony',
+					'website' => 'http://scouts-zurenborg.be/nieuw',
 					'email' => 'rubenvanassche@gmail.com'),
 				'version' => 'Symphony 2.3.1',
-				'release-date' => '2013-09-06T21:42:35+00:00'
+				'release-date' => '2013-09-14T17:19:06+00:00'
 			);
 		}
 

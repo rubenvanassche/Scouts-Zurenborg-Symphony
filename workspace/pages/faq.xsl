@@ -33,7 +33,7 @@
 
 <xsl:template match="faq/entry">
     <h3><xsl:value-of select="vraag"/></h3>
-    <p><xsl:value-of select="antwoord"/></p>
+    <p><xsl:copy-of select="antwoord"/></p>
 </xsl:template>
 
 

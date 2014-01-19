@@ -5,13 +5,13 @@
 	Class datasourcefaq extends SectionDatasource{
 
 		public $dsParamROOTELEMENT = 'faq';
-		public $dsParamORDER = 'desc';
+		public $dsParamORDER = 'asc';
 		public $dsParamPAGINATERESULTS = 'yes';
 		public $dsParamLIMIT = '20';
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamREQUIREDPARAM = 'categorie';
-		public $dsParamSORT = 'system:id';
+		public $dsParamSORT = 'plaats';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		
 
@@ -37,10 +37,10 @@
 				'name' => 'FAQ',
 				'author' => array(
 					'name' => 'ruben van assche',
-					'website' => 'http://localhost:8888/symphony',
+					'website' => 'http://scouts-zurenborg.be/nieuw',
 					'email' => 'rubenvanassche@gmail.com'),
 				'version' => 'Symphony 2.3.1',
-				'release-date' => '2013-07-08T14:10:50+00:00'
+				'release-date' => '2013-09-14T22:30:51+00:00'
 			);
 		}
 

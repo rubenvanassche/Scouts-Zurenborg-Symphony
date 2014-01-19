@@ -18,6 +18,9 @@
             <meta name="description" content="" />
             <meta name="author" content="" />
             
+            <!-- FAVICON -->
+            <link rel="shortcut icon" href="{$workspace}/resources/img/favicon.ico" type="image/x-icon" />
+            
             <!-- CSS -->
             <link href="{$workspace}/resources/css/bootstrap.css" rel="stylesheet" />
             <!-- <link href="{$workspace}/resources/css/bootstrap-theme.css" rel="stylesheet" /> -->
@@ -74,9 +77,10 @@
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groep <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        	<li><a href="{$root}/documenten">Documenten</a></li> 
                             <li><a href="{$root}/groepsleiding">Groepsleiding</a></li>
-                            <li><a href="{$root}/verhuur">Verhuur</a></li>
-                            <li><a href="{$root}/vzw">VZW</a></li>              
+                        
+                            <li><a href="{$root}/verhuur">Verhuur</a></li>             
                         </ul>
                         </li>
                         <li><a href="{$root}/faq/algemeen/">FAQ</a></li>
@@ -102,10 +106,22 @@
             <script src="{$workspace}/resources/js/jquery.js"></script>
             <script src="{$workspace}/resources/js/bootstrap.js"></script>
             <xsl:call-template name="extra-js"/>
+            
+            <!-- Phone utility -->
+            <script>
+            $('.telefoon').text(function(i, text) {
+            	if(text.length == 9){
+			    	return text.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1/$2.$3.$4');
+			    }
+			    if(text.length == 10){
+			    	return text.replace(/(\d{4})(\d{2})(\d{2})(\d{2})/, '$1/$2.$3.$4');
+			    }
+			});
+			
+            </script>
 
             <!-- Statistics -->
             <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-43995110-1', 'scouts-zurenborg.be'); ga('send', 'pageview'); </script> 
-
         </body>
     </html>
 </xsl:template>

@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:include href="../utilities/master.xsl"/>
+<xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
 	<div class="row">
@@ -16,65 +16,45 @@
 
 			<a href="{params/root}" class="pull-right">Terug naar home</a>
 		</div>
-	</div>  	
+	</div>
 </xsl:template>
 
 <xsl:template match="berichten/entry">
-	<xsl:if test="achtergrond/item='Lichtblauw'">
-		<div class="bericht" style="background-color:#3498db;">
-			<div class="title">
-				<xsl:value-of select="titel"/>
-			</div>
-				<div class="caption">
-				<xsl:value-of select="slagzin"/>
-			</div>
-			<div class="readmore">
-				<a href="{$root}/bericht/{@id}">Lees meer <i class="glyphicon glyphicon-chevron-right"></i></a>
-			</div>
+	<div class="bericht" style="background-color:#3498db;">
+		<div class="title">
+			<xsl:value-of select="titel"/>
 		</div>
-	</xsl:if>
+			<div class="caption">
+			<xsl:value-of select="slagzin"/>
+		</div>
+		<div class="readmore">
+			<a href="{$root}/bericht/{@id}">Lees meer <i class="glyphicon glyphicon-chevron-right"></i></a>
+		</div>
+	</div>
+</xsl:template>
 
-	<xsl:if test="achtergrond/item='Geel'">
-		<div class="bericht" style="background-color:#f39c12;">
-			<div class="title">
-				<xsl:value-of select="titel"/>
-			</div>
-				<div class="caption">
-				<xsl:value-of select="slagzin"/>
-			</div>
-			<div class="readmore">
-				<a href="{$root}/bericht/{@id}">Lees meer <i class="glyphicon glyphicon-chevron-right"></i></a>
-			</div>
-		</div>
-	</xsl:if>
-
-	<xsl:if test="achtergrond/item='Rood'">
-		<div class="bericht" style="background-color:#e74c3c;">
-			<div class="title">
-				<xsl:value-of select="titel"/>
-			</div>
-				<div class="caption">
-				<xsl:value-of select="slagzin"/>
-			</div>
-			<div class="readmore">
-				<a href="{$root}/bericht/{@id}">Lees meer <i class="glyphicon glyphicon-chevron-right"></i></a>
-			</div>
-		</div>
-	</xsl:if>
-
-	<xsl:if test="achtergrond/item='Groen'">
-		<div class="bericht" style="background-color:#18bc9c;">
-			<div class="title">
-				<xsl:value-of select="titel"/>
-			</div>
-				<div class="caption">
-				<xsl:value-of select="slagzin"/>
-			</div>
-			<div class="readmore">
-				<a href="{$root}/bericht/{@id}">Lees meer <i class="glyphicon glyphicon-chevron-right"></i></a>
-			</div>
-		</div>
-	</xsl:if>
+<xsl:template name="extra-js">
+	<script>
+		var colors = Array('#f39c12', '#e74c3c', '#3498db', '#18bc9c');
+		var temp = Array('#f39c12', '#e74c3c', '#3498db', '#18bc9c');
+		$( ".bericht" ).each(function(index) {
+			var colorIndex = Math.floor(Math.random()*temp.length)
+			var backgroundcolor = temp[colorIndex];
+			temp.splice(colorIndex,1);
+			
+			$(this).css("background-color", backgroundcolor);
+			
+			console.log(index%4);
+			
+			3, 7, 11, 14
+			
+			if(index != 0){
+				if(index%4 == 3){
+					temp = colors.slice(0);
+				}
+			}
+		});
+	</script>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <h2><xsl:value-of select="global/entry/naam"/></h2>
+            <h2 style="margin-top: 0px;"><xsl:value-of select="global/entry/naam"/></h2>
             <i><xsl:value-of select="global/entry/volledige-naam"/></i>
             <p> </p>
             <p><xsl:value-of select="global/entry/adres"/></p>
@@ -25,7 +25,7 @@
                 <br />
                     <xsl:for-each select="leiding/entry">
 					    <xsl:if test="groepsleiding='Yes'">
-					        <i class="glyphicon glyphicon-user"></i> <b><xsl:value-of select="naam"/></b> : <xsl:value-of select="telefoonnummer" /> <br />
+					        <i class="glyphicon glyphicon-user"></i> <b><xsl:value-of select="naam"/></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer" /></span> <br />
 					    </xsl:if>
 				    </xsl:for-each>
             </p>
