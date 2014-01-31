@@ -2,9 +2,9 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourceverhuurders extends SectionDatasource {
+	Class datasourceledenlijsten extends SectionDatasource {
 
-		public $dsParamROOTELEMENT = 'verhuurders';
+		public $dsParamROOTELEMENT = 'ledenlijsten';
 		public $dsParamORDER = 'desc';
 		public $dsParamPAGINATERESULTS = 'yes';
 		public $dsParamLIMIT = '20';
@@ -14,15 +14,11 @@
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		
 
-		public $dsParamFILTERS = array(
-				'88' => 'yes',
-		);
 		
 
 		public $dsParamINCLUDEDELEMENTS = array(
-				'naam',
-				'telefoonnummer',
-				'email-adres'
+				'tak',
+				'lijst'
 		);
 		
 
@@ -33,18 +29,18 @@
 
 		public function about() {
 			return array(
-				'name' => 'verhuurders',
+				'name' => 'Ledenlijsten',
 				'author' => array(
 					'name' => 'ruben van assche',
 					'website' => 'http://localhost:8888/symphony',
 					'email' => 'rubenvanassche@gmail.com'),
 				'version' => 'Symphony 2.3.5',
-				'release-date' => '2014-01-31T01:15:51+00:00'
+				'release-date' => '2014-01-31T00:15:59+00:00'
 			);
 		}
 
 		public function getSource() {
-			return '10';
+			return '31';
 		}
 
 		public function allowEditorToParse() {

@@ -25,7 +25,7 @@
             <h3><xsl:value-of select="tak/entry/naam"/></h3>
             <p><b><xsl:value-of select="tak/entry/kreet"/></b></p>
             <p><xsl:value-of select="tak/entry/leeftijd"/></p>
-            <p><a href="mailto:{tak/entry/email-adres}">Contacteer Leiding</a></p>
+            <p><i style="margin-right:3px;" class="glyphicon glyphicon-send"></i> <a href="mailto:{tak/entry/email-adres}">Contacteer Leiding</a></p>
         </div>
         <hr class="visible-xs" style="margin-bottom : 40px;" />
         <div class="col-sm-9 col-sm-offset-1">
@@ -43,7 +43,7 @@
 <xsl:template match="leiding/entry">
     <div class="leidingImg col-sm-5">
         <img src="{$root}/image/2/200/200/5/Afbeeldingen/leiding/{foto/filename}" alt="{naam}" class="img-circle"/>
-        <p class="title"><xsl:value-of select="naam"/></p>
+        <p class="title"><xsl:value-of select="naam"/> <a href="mailto:{email-adres}"> <i style="margin-left:6px;" class="glyphicon glyphicon-send"></i></a> </p>
         <p><xsl:value-of select="straat"/>&#160;<xsl:value-of select="huisnummer"/></p>
         <p><xsl:value-of select="postcode"/>&#160;<xsl:value-of select="stad"/></p>
         <p class="telefoon"><xsl:value-of select="telefoonnummer"/></p>

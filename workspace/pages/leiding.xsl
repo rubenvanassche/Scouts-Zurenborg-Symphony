@@ -13,7 +13,7 @@
 <xsl:template match="leiding/entry">
     <div class="leidingImg col-md-4">
         <img src="{$root}/image/2/200/200/5/Afbeeldingen/leiding/{foto/filename}" alt="{naam}" class="img-circle"/>
-        <p class="title"><xsl:value-of select="naam"/></p>
+        <p class="title"><xsl:value-of select="naam"/> <a href="mailto:{email-adres}"> <i style="margin-left:6px;" class="glyphicon glyphicon-send"></i></a> </p>
         <p><xsl:value-of select="straat"/>&#160;<xsl:value-of select="huisnummer"/></p>
         <p><xsl:value-of select="postcode"/>&#160;<xsl:value-of select="stad"/></p>
         <p class="telefoon"><xsl:value-of select="telefoonnummer"/></p>

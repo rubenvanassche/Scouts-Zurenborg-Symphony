@@ -75,6 +75,34 @@ a:hover, a:focus{
 	display: none;
 }
 
+.list-group-item.active{
+	background-color: rgb(231, 76, 60);
+	border-color: rgb(231, 76, 60);
+}
+
+.list-group-item.active:hover{
+	background-color: rgb(231, 76, 60);
+	border-color:rgb(231, 76, 60);
+}
+
+.list-group-item.active .list-group-item-text{
+	color: white;
+}
+.list-group-item.active:hover .list-group-item-text{
+	color: white;
+}
+
+
+a.list-group-item:hover{
+	background-color: rgb(243, 156, 18);
+	border-color: rgb(243, 156, 18);
+}
+a.list-group-item:hover .list-group-item-text{
+	color: white;
+}
+a.list-group-item:hover .list-group-item-heading{
+	color: white;
+}
 
 
 /* Start LE Styles for information page */
@@ -108,6 +136,27 @@ a:hover, a:focus{
 
 .sidebar img{
 	max-width: 100%;
+}
+
+/* Start LE Styles for date field */
+.datefield{
+	width: 140px;
+}
+
+.datefield .date{
+	background-color: rgb(231, 76, 60);
+	font-size: 20px;
+	color: white;
+	width: auto;
+	padding:3px;
+}
+.datefield .time{
+	background-color: rgb(243, 156, 18);
+	font-size: 15px;
+	color: white;
+	width: auto;
+	padding:3px;
+	float: right;
 }
 
 /* Start LE Styles for verhuur */
@@ -254,6 +303,7 @@ ul#faqSelector li.active p{
 	.bericht .title{
 	font-size: 33px;
 	}
+	
 }
 
 @media (max-width: 767px) {
@@ -321,5 +371,23 @@ ul#faqSelector li.active p{
 
 	.bericht .title{
 	font-size: 27px;
+	}
+	
+		/* Start LE Styles for date field */
+	.datefield{
+		width: 100%;
+	}
+	
+	.datefield .date{
+		font-size: 15px;
+		float: left;
+	}
+	.datefield .time{
+		font-size: 15px;
+		padding:3px;
+		float: left;
+	}
+	.agendainfo{
+		float: left;
 	}
 }
