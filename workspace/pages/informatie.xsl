@@ -25,7 +25,7 @@
                 <br />
                     <xsl:for-each select="leiding/entry">
 					    <xsl:if test="groepsleiding='Yes'">
-					        <i class="glyphicon glyphicon-user" style="margin-right:6px;"></i> <b><a href="mailto:{email-adres}"><xsl:value-of select="naam"/></a></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer" /></span> <br />
+					        <i class="glyphicon glyphicon-user" style="margin-right:6px;"></i> <b><a href="mailto:{email-adres}" title="Contacteer {naam}"><xsl:value-of select="naam"/></a></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer" /></span> <br />
 					    </xsl:if>
 				    </xsl:for-each>
             </p>

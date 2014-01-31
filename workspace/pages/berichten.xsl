@@ -10,7 +10,7 @@
 		    <em>Voorbije berichten vindt u hier.</em> 
 		    <a class="pull-right" href="{$root}/rss"><img style="height:16px;" src="{$workspace}/resources/img/rss.png" /></a>
 		</div>
-		<div class="col-md-12" style="margin-top:20px;">
+		<div class="col-md-12 berichten" style="margin-top:20px;">
 
 			<xsl:apply-templates select="berichten/entry"/>
 

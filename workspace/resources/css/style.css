@@ -218,6 +218,22 @@ a.list-group-item:hover .list-group-item-heading{
 	text-decoration: none;
 }
 
+.berichten .bericht:nth-child(1){
+	background-color: #f39c12;
+}
+
+.berichten .bericht:nth-child(2){
+	background-color: #e74c3c;
+}
+
+.berichten .bericht:nth-child(3){
+	background-color: #3498db;
+}
+
+.berichten .bericht:nth-child(4){
+	background-color: #18bc9c;
+}
+
 /* Start LE Styles for leiding maandblad */
 
 #maandbladviewer{

@@ -13,7 +13,7 @@
 			<h3 class="pull-right">Berichten <a href="{$root}/rss"><img style="height:18px;" src="{$workspace}/resources/img/rss.png" /></a></h3>
 		</div>
 	</div>
-	<div class="row ">
+	<div class="row">
     	<div class="col-sm-12 visible-xs">
 			<h3>Voorwoord</h3>
 		</div>
@@ -24,7 +24,7 @@
         	<hr />
 			<h3>Berichten <a href="{$root}/rss"><img style="height:18px;" src="{$workspace}/resources/img/rss.png" /></a></h3>
 		</div>
-        <div class="col-sm-6 col-sm-offset-1">
+        <div class="col-sm-6 col-sm-offset-1 berichten">
 
         	<xsl:apply-templates select="berichten-home/entry"/>
         	
@@ -34,7 +34,7 @@
 </xsl:template>
 
 <xsl:template match="berichten-home/entry">
-	<div class="bericht" style="background-color:#3498db;">
+	<div class="bericht">
 		<div class="title">
 			<xsl:value-of select="titel"/>
 		</div>
@@ -47,14 +47,6 @@
 	</div>
 </xsl:template>
 
-<xsl:template name="extra-js">
-	<script>
-			$('.bericht').eq(0).css('background-color','#f39c12');
-			$('.bericht').eq(1).css('background-color','#e74c3c');
-			$('.bericht').eq(2).css('background-color','#3498db');
-			$('.bericht').eq(3).css('background-color','#18bc9c');
-	</script>
-</xsl:template>
 
 
 </xsl:stylesheet>

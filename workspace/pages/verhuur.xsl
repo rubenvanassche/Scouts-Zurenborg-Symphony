@@ -10,7 +10,7 @@
     	<h3>Algemeen</h3>
     	<p><xsl:value-of select="$sp-scouts-materiaalverhuur"/></p>
     	<xsl:for-each select="verhuurders/entry">
-		         <p><i class="glyphicon glyphicon-user"></i><b><xsl:value-of select="naam"/></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer"/></span></p>
+		         <p><i class="glyphicon glyphicon-user" style="margin-right:6px;"></i><b><xsl:value-of select="naam"/></b> : <span class="telefoon"><xsl:value-of select="telefoonnummer"/></span></p>
 		</xsl:for-each>
     	<h3>Verhuurlijst</h3>
         <table id="verhuurtable" class="table table-condensed">

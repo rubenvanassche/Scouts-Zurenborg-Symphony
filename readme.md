@@ -6,8 +6,11 @@ This is a dump from the Scouts Zurenborg website. It can be seen working over [h
 ### Totem (work in progress)
 - Fixed bug on the homepage in mobile resolution, the text in the infoboxes was unreadable
 - Added links to mailboxes in: informatie and leiding pages
+- Upgrade to Symphony CMS 2.3.6
+- Removed some unessesairy data sources
+- New paralax event on all the pages
 - First fase of the leiding section builded with:
-	- Agenda
+	- Agenda (viewing + adding events)
 	- Documents(ledenlijsten, aanwezigheidslijsten, groepsverslagen and helpfull documents for everyone)
 
 ### Belofte

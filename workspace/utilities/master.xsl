@@ -38,7 +38,7 @@
             <![endif]-->
         </head>
         <body>
-            <div id="background">
+            <div id="background" data-stellar-background-ratio="0.5">
             </div>
             <div class="container">
                 <!-- Navigation -->
@@ -131,9 +131,10 @@
             <!-- JS -->
             <script src="{$workspace}/resources/js/jquery.js"></script>
             <script src="{$workspace}/resources/js/bootstrap.js"></script>
+            <script src="{$workspace}/resources/js/stellar.js"></script>
             <xsl:call-template name="extra-js"/>
             
-            <!-- Phone utility -->
+            <!-- Phone utility and stellar -->
             <script>
             $('.telefoon').text(function(i, text) {
             	if(text.length == 9){
@@ -144,6 +145,7 @@
 			    }
 			});
 			
+			$(window).stellar();
             </script>
 
             <!-- Statistics -->

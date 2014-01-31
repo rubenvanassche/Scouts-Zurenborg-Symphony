@@ -9,7 +9,7 @@
 <div class="row">
 	<div class="col-md-12" style="">
 		<i><a href="{$root}/private/icsagendahelp">Klik hier</a> om deze agenda in uw computer, smartphone of tablet te zetten.</i>
-		<a class="pull-right" href="#">Toevoegen <i class="glyphicon glyphicon-plus"> </i></a>
+		<a class="pull-right" href="{$root}/private/nieuw-evenement">Toevoegen <i class="glyphicon glyphicon-plus"> </i></a>
 		<hr />
 	</div>
 </div>
