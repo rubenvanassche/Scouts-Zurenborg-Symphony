@@ -9,5 +9,6 @@ This is a dump from the Scouts Zurenborg website. It can be seen working over [h
 - First fase of the leiding section builded with:
 	- Agenda
 	- Documents(ledenlijsten, aanwezigheidslijsten, groepsverslagen and helpfull documents for everyone)
+
 ### Belofte
 The initial release of the website
